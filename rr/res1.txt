@@ -1,0 +1,2 @@
+SOLVersion: 1.1; Command: BID; Price: 1122;
+item-123 1098 1122 BIDDING

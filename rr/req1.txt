@@ -1,0 +1,2 @@
+sniper item-123 1300 0 0 JOINING
+SOLVersion: 1.1; Event: PRICE; CurrentPrice: 1098; Increment: 24; Bidder: other bidder;

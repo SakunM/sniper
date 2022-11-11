@@ -1,0 +1,129 @@
+実装中に気付いた事　　			A:\PJ\sniper\hint.txt
+
+
+スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
+
+
+なぜ、MarkupBuilderなのか：		Gradleが生まれた理由の一つに、XMLの記述が冗長性が有ると思う。
+けど、Gradleには成果物としての、build.xmlの生成機能がない。自分がHTMLの記述にPug、CSSの記述CASSを使うように、
+成果物の確認が欲しかった。そうした事があってBuildにはGroovyのMarkupBuilderを選んだ。
+
+なぜ、Mokitoなのか：　　同じ理由でモック機能はMokitoを使う。JMockの{{構文はJinjaの口ひげ構文みたいで、
+自分がPugを選んだように好みの問題だ。
+
+
+テスト環境の足場作りについて：　本書通りに作業をすすめて行くと、MainTestの他に、FakeAuction、ApplicationRunner、
+SwingTestDriver、それに自分はAuctionServerに依存するようにFakeAuctionを実装したので、MainTestに関連するコラボが４つになる。
+そして、このコラボ達はMainTestのテストが増える度に変更を行う。
+自分には、MainTestと一番依存関係が深いのはApplicationRunnerだと思い。ApplicationRunnerはMainTestに入れ込む事にした。
+
+Javaで未知の型を探る方法：　SwingTestDriverのコンストラクタで、superに渡す３つの変数の記述が以下のようだ。
+super( new GesturePerformer(),
+      JFrameDriver.topLevelFrame(named("MainWindow"), showingOnScreen()), 
+      new AWTEventQueueProber(timeout, 100));
+せめて、第二引数のJFrameDriver.topLevelFrame(named("MainWindow"), showingOnScreen())だけでも、インスタンスにまとめて渡したい。
+そこで、静的な型付け言語のJavaで未知の型を探る方法について調べた、謎の型のインスタンスをラップして、
+.getClsas.getSimpleName();　を直にプリントする事で型名を調べられる。最初のカッコの中が謎の型名のインスタンスだ。
+System.out.println((JFrameDriver.topLevelFrame(named("MainWindow"), showingOnScreen()).getClass().getSimpleName()));
+のようなチップスをググって探したけど、Javaの仕様はで継承先のコンストラクタを表すsuperの前段階に、
+何かを生成する事は出来ないみたいだ。なので、本書でもこのような書き方になっているみたいだ。
+
+MainTestのテストメソッドの名前は日本語：	Javaではbuild.xmlでエンコードをUTF-8にすれば日本語のメソッド名が有効になる。
+やはり、テストメソッドの名前は母国語の方が、可読性が上がる。mainパッケージ内では、英語にするけど、
+testパッケージでは、適材適所だ。
+
+各ファイルのメイン関数について：　Javaではすべてのクラスにメイン関数を置く事だできる。部品として使うクラスに対しても、
+メイン関数を置いてもエラーにならない。なので、そのクラスに対しての簡単なテストはmain関数で行いたい。
+けど、現在個別のクラスファイルの実行は出来ていない。
+
+第13章　スナイパーが入札する：		Translatorの整理の意味
+最初の実装は粗削りだと言い13章の最後でリファクタリングした。でも、行数は増えた。
+実装を見てみると、まずEventというスタチックな内部クラスを作った。スタチックである理由はもし親クラスが何度か生成を繰り返しても
+スタチックなら内部クラスは一つだけでメモリ的に優れているからだと、EffectiveJavaにある。
+そして、このクラスはスタチックなファクトリメソッドでインスタンスを提供している。そしてそのインスタンスはHashMapそのものだ。
+あえて、HashMapに別名を与える事でドメイン特化言語に仕上げている。
+
+
+第14章　スナイパーがオークションで落札する：
+AuctionListenerインターフェースの中で列挙型（enum）を入れ子で加えた、の列挙型のメンバーをたのファイルから参照するのに
+Javaのパッケージプログラミングの仕様でかなり嵌った。他のパッケージでのインポート宣言は。
+import static main.xmpp.AuctionListener.FromSniper;	だ。列挙型のメンバーの型はstatic扱いだった。
+そして入れ子なので親インターフェースの次に置く。同じパッケージ同士でも、絶対位置が必要だ。
+
+
+第15章　実際のユーザーインターフェースに向けて：	ant.groovyで依存関係にあるライブラリを先に宣言した時のエラーメッセージ
+    [junit] java.lang.NoSuchFieldError: NONE
+    [junit]     at org.hamcrest.DiagnosingMatcher.matches(DiagnosingMatcher.java:11)
+    [junit]     at org.hamcrest.beans.SamePropertyValuesAs.hasMatchingValues(SamePropertyValuesAs.java:60)
+    [junit]     at org.hamcrest.beans.SamePropertyValuesAs.matchesSafely(SamePropertyValuesAs.java:35)
+    [junit]     at org.hamcrest.TypeSafeDiagnosingMatcher.matches(TypeSafeDiagnosingMatcher.java:54)
+    [junit]     at org.hamcrest.core.Is.matches(Is.java:26)
+    [junit]     at org.mockito.internal.matchers.LocalizedMatcher.matches(LocalizedMatcher.java:32)
+    [junit]     at org.mockito.internal.invocation.ArgumentsComparator.argumentsMatch(ArgumentsComparator.java:26)
+    [junit]     at org.mockito.internal.invocation.ArgumentsComparator.argumentsMatch(ArgumentsComparator.java:18)
+    [junit]     at org.mockito.internal.invocation.InvocationMatcher.matches(InvocationMatcher.java:61)
+    [junit]     at org.mockito.internal.invocation.InvocationsFinder$RemoveNotMatching.isOut(InvocationsFinder.java:145)
+    [junit]     at org.mockito.internal.invocation.InvocationsFinder$RemoveNotMatching.isOut(InvocationsFinder.java:137)
+    [junit]     at org.mockito.internal.util.collections.ListUtil.filter(ListUtil.java:16)
+    [junit]     at org.mockito.internal.invocation.InvocationsFinder.findInvocations(InvocationsFinder.java:20)
+    [junit]     at org.mockito.internal.verification.checkers.MissingInvocationChecker.check(MissingInvocationChecker.java:32)
+    [junit]     at org.mockito.internal.verification.Times.verify(Times.java:36)
+    [junit]     at org.mockito.internal.verification.MockAwareVerificationMode.verify(MockAwareVerificationMode.java:21)
+    [junit]     at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:72)
+    [junit]     at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+    [junit]     at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
+    [junit]     at org.mockito.internal.creation.cglib.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:59)
+    [junit]     at org.mockito.internal.runners.JUnit45AndHigherRunnerImpl.run(JUnit45AndHigherRunnerImpl.java:37)
+    [junit]     at org.mockito.runners.MockitoJUnitRunner.run(MockitoJUnitRunner.java:62)
+これは、hamcrestに依存関係にあるmokitoライブラリをhamcrestより先に宣言した時のエラーメッセージだ。
+つまり、バックトレースを辛抱強く読み込めばどうすればよいのかわかるね！！
+
+第16章　複数の商品をスナイプする： 自分はMatcherの考え方がよく理解できない 他の言語のテスト環境ではあまり見かけない仕様だ。
+たいていアサート関数の第三引数は、失敗メッセージを自由に合成できるように文字列で受け取る。
+Javaは、簡単な事をすごく複雑な事で対応しているように感じる。
+
+Javaは同名のメソッドでも、引数が違えば別のメソッドとして扱う。JVMの参照テーブルで引数も管理しているのだろう。
+この機能のおかげで、古いバージョンとの下位相互性が保たれている。けど、この事が後で混乱のもとにならないのか？
+それと、入札参加メソッドで商品名の確認を行っているけど、現在の実装では商品名はから文字のはず。
+つまり、これだとテストの最初でつまずいてしまう。数ページ後で入札の数だけ、商品名をとりだしてGuiに渡す処理を行うまでは、
+入札参加メソッドの商品名のチェックは空文字でおこなう。そして商品名をGuiに渡す処理を終えたあとは、商品名に戻さないと、
+これはこれで、躓いてしまうので注意だ。
+
+入札商品が増えたときに、どの部分が増えて数だけ必要でどの機能が一つで大丈夫なのかを見極める事が非常に重要だ。
+とくに、機能がもともと分解されている
+
+
+第17章　Mainクラスを分解する： 前半部分のXMPPに関係する部分をxmppパッケージに移す場面は強い動機にも賛同できるし、
+技術的にも理解の範囲だった。でも後半部分は理解の範囲を超えている。スナイパーやトランスレーターはリスナを通知ピアにする事で
+生成のタイミングを柔軟にできる事も凄いテクニックだ。
+
+
+第18章　詳細を詰める：　そこら中に散らばる商品名をすべて商品構造体に変えるためにコンパイエラーを頼りに行った。
+とくに、テストメソッドでは繰り返し現れるのでかなり大変だ。でも、エディタの置き換え機能を使ったり作業は単純だし。
+肝心のロジックの変更はシンプルで分かりやすい。入札の許可はItemにお願いするのがオブジェクト指向的。
+
+
+第19章　エラー処理：　　Translatorがログレポーターを依存ピアとして生成時に取り込む。
+しかし、ログレポーターがすぐに働けるための準備は、XMPPAuctionHouseで行う。この辺が直感的では無い気がするけど・・
+でも、Translatorの中でメッセージの翻訳以外の仕事を行う事も要点がぼやけるので仕方が無いか？
+
+
+新しい試み：　　新し試みと既存の実装を簡単に切り替えるために、Javaのインターフェースを使った多態性を使う。
+まず、GUI側へは、SniperとSniper2のどちらを取り込んでも機能するようにForGUIインターフェースをどちらのクラスにも実装させた。
+そして、uiパッケージの中での、すべての具体型SniperをForGUIに変更。Portfolioでも具体型ではなくForGUIで保持する。
+xmppパッケージでは、どうしてもバージョンを切る必要があったAuctionとXMPPAuctionにはそれぞれAuction2とXMPPAuction2を作った。
+でも、AuctinHouseやFailureReporterなどは、メソッドを増やす事で対応した。
+E2Eテストで処理が先に進まない感じが有ったら、内部で例外を吐かれている可能も考慮する。
+E2Eテストの場合、そのE2Eテストのライブラリからの例外以外はメッセージに現れない。なので、E2Eテストに乗せる新しい関数や機能は
+ユニットテストでしっかりチェックする事が重要だ。
+
+
+
+
+スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
+今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
+第11章のスナップショット　 		A:\SniperAgein\ant11
+現在の作業フォルダ　			A:\PJ\sniper
+
+
+

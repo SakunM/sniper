@@ -1,0 +1,2 @@
+sniper item-123 1300 1000 1098 BIDDING
+SOLVersion: 1.1; Event: CLOSE;

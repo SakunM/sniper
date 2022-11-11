@@ -1,0 +1,2 @@
+failed: [a broken message] Missing value for field is [Event]
+item-123 0 0 FAILED
