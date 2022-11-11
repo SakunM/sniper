@@ -20,3 +20,6 @@ PythonもRubyも文字列にスライス構文があるので、テストが通�
 実装中に気付いた事　　			A:\PJ\sniper\hint.txt
 今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
 現在の作業フォルダ　			A:\PJ\sniper
+スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
+スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
+スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
