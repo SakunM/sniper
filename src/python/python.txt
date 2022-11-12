@@ -30,3 +30,4 @@ utilフォルダを配置した。そして、自前のテストメソッドは�
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
 スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt

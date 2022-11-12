@@ -1,4 +1,4 @@
-スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
+スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
 
 JavaScriptでも、ファイル名に関するコーディング規約があるのかなと思って少ししらべたら。
 ファイル名やフォルダ名に関する事は、OSの違いによって左右される事が大きい事が判明。Unix系では大文字小文字を区別するけど、
@@ -7,6 +7,9 @@ Windowsでは区別なし、つまりHelloWorld.jsとhelleoworld.jsは、Unix系
 すべて小文字でつなぎにはマイナス記号を使うのが良いのかな？
 
 
+少し寄り道して、「48時間でSchemeを書こう」で遊ぶよ。
+R5RS
+gz拡張子
 
 スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
 実装中に気付いた事　　			A:\PJ\sniper\hint.txt

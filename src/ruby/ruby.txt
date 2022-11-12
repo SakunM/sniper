@@ -23,3 +23,4 @@ PythonもRubyも文字列にスライス構文があるので、テストが通�
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
 スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
