@@ -4,7 +4,7 @@ const sp = require("../src/sniper"), assert = require("assert"), sinon = require
 class Sniper{ constructor(){} close(){} price(price, increment,bidder){} fail(msg){}}
 
 describe("スナイパーとトランスレーターのテストだよ", () => {
-  const item = "sniper item-123 3000 ", winning = item + "1098, 1098 WINNING", noMsg = "toAuctionMsssage is None",
+  const item = "sniper item-123 3000 ", winning = item + "1098, 1098 WINNING", noMsg = "toAuctionMessage is None",
     joining = item + "0 0 JOINING", bidding = item + "1000 1098 BIDDING";
   describe("とりあえず二つとも生成してみるよ", () => {
     it("スナイパーからね",() => {

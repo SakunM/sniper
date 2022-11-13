@@ -7,7 +7,7 @@ class Sniper {
   constructor(items){
     let [nm, it,sp,lp,lb,st] = items.split(' '); this.name = nm; this.item = it; this.state = st.trim();
     this.stopPrice = parseInt(sp); this.lastPrice = parseInt(lp); this.lastBid = parseInt(lb);
-    this.msg = "toAuctionMsssage is None";
+    this.msg = "toAuctionMessage is None";
   }
   close(){ this.state = this.state == "WINNING" ? "WON": "LOST";}
   price(price, increment, bidder){
@@ -51,11 +51,42 @@ function test(){
   console.log(res);
 }
 
+function refactor(){
+  let [items, msg ] = reader("a:/pj/sniper/rr/req1.txt").split('\n');
+  let res = domain(items, msg), exp = reader("a:/pj/sniper/rr/res2.txt");
+  res = res.replace("\n", " "); exp = exp.replace("\r\n", " ");
+  t.test(res.trim(), exp.trim(), "今回リファクターではあえて間違いテストをチェックしたい");
+}
+
+function developer(arg, exp, disp){
+  let [items, msg] = arg.split('\n'), ans = domain(items, msg);
+  t.test(ans.replace("\n", " "), exp.replace("\r\n", " "), disp);
+}
+function develop(){
+  const arg1 = reader("a:/pj/sniper/rr/req1.txt"), exp1 = reader("a:/pj/sniper/rr/res1.txt");
+  const arg2 = reader("a:/pj/sniper/rr/req2.txt"), exp2 = reader("a:/pj/sniper/rr/res2.txt");
+  const arg3 = reader("a:/pj/sniper/rr/req3.txt"), exp3 = reader("a:/pj/sniper/rr/res3.txt");
+  const arg4 = reader("a:/pj/sniper/rr/req4.txt"), exp4 = reader("a:/pj/sniper/rr/res4.txt");
+  const arg5 = reader("a:/pj/sniper/rr/req5.txt"), exp5 = reader("a:/pj/sniper/rr/res5.txt");
+  const arg6 = reader("a:/pj/sniper/rr/req6.txt"), exp6 = reader("a:/pj/sniper/rr/res8.txt");
+  developer(arg1,exp1, "参加要請中に限度額以下の価格情報がくると入札中になって買い注文を出すよ");
+  developer(arg2,exp2, "参加要請中にオークションが閉まると落札は失敗で買い注文は無しだ");
+  developer(arg3,exp3, "入札中にオークションが閉まっても落札は失敗で買い注文は無しだ");
+  developer(arg4,exp4, "一位入札中にオークションが閉まれば落札は成功で買い注文は無しだ");
+  developer(arg5,exp5, "一位入札中でも限度額以上の価格情報がくれば脱落中で買い注文は無しだ");
+  developer(arg6,exp6, "ヘンテコなメッセージが来ると金額はすべて０にしてエラー発生だ");
+}
+
+function product(){
+  let [items, msg] = reader("toSniper.txt").split('\n');
+  writer("fromSniper.txt", domain(items, msg));
+}
+
 if(require.main === module){
-  test()
+  // test()
   // refactor()
   // develop()
-  // product()
+  product()
 }
 
 /*

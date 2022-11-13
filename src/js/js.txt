@@ -6,6 +6,8 @@ Windowsでは区別なし、つまりHelloWorld.jsとhelleoworld.jsは、Unix系
 だとすれば、ファイル名とクラス名やモジュール名を同じにする、JavaやHaskell以外の言語ならどちらでも使えるように、
 すべて小文字でつなぎにはマイナス記号を使うのが良いのかな？
 
+JavaScript　文字列比較
+
 
 
 スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt

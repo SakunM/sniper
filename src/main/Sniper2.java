@@ -26,7 +26,8 @@ public class Sniper2 implements MessageListener, ForGUI {
     catch(IOException e) { e.printStackTrace();}
   }
   private void exesPart(){
-    String exes = "ruby src/ruby/src/sniper.rb";
+    String exes = "node src/js/src/sniper.js";
+    // String exes = "ruby src/ruby/src/sniper.rb";
     // String exes = "python src/python/src/sniper.py";
     try{ Process p = Runtime.getRuntime().exec(exes); p.waitFor(); p.destroy();
     } catch (IOException | InterruptedException e) { e.printStackTrace();}
