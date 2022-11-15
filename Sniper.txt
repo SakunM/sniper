@@ -8,6 +8,7 @@ VSCodeは、色々な言語に対応するためにJavaに特化したbulid.xml�
 なので、ビルドツールが必要だ、Javaの場合は昔はAnt、今ならGradleだろうけど、自分はGroovyのMarkupBuilderを使う。
 なぜ、MarkupBuilderなのか			A:\PJ\sniper\hint.txt	
 
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
 スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt

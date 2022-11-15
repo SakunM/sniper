@@ -1,2 +1,2 @@
-failed: msg is [a broken message] missing field Event
-item-123 0 0 FAILID
+failed: msg is [a broken message] missing field [Event]
+item-123 0 0 FAILED
