@@ -1,0 +1,1 @@
+g++ -Wall -Wextra -fexec-charset=cp932 src/cpp/src/sniper.cpp & .\a.exe

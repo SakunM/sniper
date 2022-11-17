@@ -11,15 +11,30 @@ Haskellでは、違った戦略が必要だ。なにしろ、副作用を扱う�
 Haskellで思う事は関数の演算子化が激しい、始め自分はJavaScriptのjQueryの$記号にも軽いアレルギー反応が有ったけど、
 Haskellと付き合う内に、だんだんと慣れて来た。
 
-
-
+今回の目的の一つである、自作のテストライブラリによるワンファイルテストとパッケージプログラミングのテストは、
+なかなか、実現出来なかった。というのも、Haskellのパッケージ検索はエントリフォルダによってソースのモジュール宣言が異なるようだ。
+今回のエントリフォルダはtoSniper.txtやfromSniper.txtがあってHost側のエントリフォルダと合わせるために
+a:/pj/mamo2/langs/groovy/projs/antだ。そしてHaskellのソースの場所はさらに下層のsrc/haskell/src と　src/haskell/testにある。
+その場合各ファイルのモジュール宣言はSniper.hsの場合は　Src/Haskell/Src/Sniper(sniper,translator,job)where のようになる
+また、import Src.Haskell.Test.Tester(zz_act)のようにインポートする。
+この方式を採用すれば、ホストのJava側で String exes = "runghc src/haskell/src/Sniper.hs"; のように他のLL系と同じに出来る。
+ただし、この方式は遅い。いまの自分の知見で、早いEXEファイルを作成するにはモジュール宣言や自作のインポートをすべて外さないと
+出来ない。つまり標準ライブラリ以外の自作の関数はすべて、ターゲットファイルに取り込んで一つにまとめないとだめだ。
+なので、自前のテストライブラリ関係はすべて削除して、Utilに分けた関数は取り込む。	A:\PJ\sniper\src\haskell\src\SniperZ.hs
 
 
 スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
 実装中に気付いた事　　			A:\PJ\sniper\hint.txt
 今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
 現在の作業フォルダ　			A:\PJ\sniper
+
+
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
 スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
 スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装			A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装			A:\PJ\sniper\src\cpp\cpp.txt
+スナイパードメインのCによる実装			A:\PJ\sniper\src\c\c.txt
+

@@ -1,0 +1,2 @@
+toAuctionMessage is None
+item-123 0 0 LOST

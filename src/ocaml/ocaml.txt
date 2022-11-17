@@ -1,0 +1,29 @@
+スナイパードメインのOCamlによる実装		A:\PJ\sniper\src\ocaml\ocaml.txt
+
+OCamlの場合はWindows環境ではテストライブラリが無い
+OCamlのメインステージはLinuxなので、Windows環境ではその仮想空間を作らないとテストライブラリは手に入らない。
+ただし、コンパイラだけはWindows版も有って、自分はそれを使っている。今回そのために仮想空間を設定するすもりは無い。
+ただし、パッケージプログラミングは体験したいので、自前のテストライブラリをutilsフォルダに置く事にした。
+他にも、汎用と思われる関数はtestフォルダに移したよ。また、OCamlもNodeと同じで改行コードに問題があるのか、
+表面的には同じように見える改行付きのテキスト文字列と、コードで作った改行付きの文字列の比較ではねられる。
+なので、改行でスプリットして各要素のトリムして空白一つでつなぎ直す関数retToSpを作る。
+また、zz_actは成功なら一行で収まるようにリファクタリング。
+
+Haskellは教育的側面が強くて、特に「凄いH本」などでは、実用的なコーディングでは使われない[Char]しか紹介していない。
+OCamlでは、初めから、文字列は文字のリストではなくもっと効率的な型だ。
+
+
+スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
+実装中に気付いた事　　			A:\PJ\sniper\hint.txt
+今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
+現在の作業フォルダ　			A:\PJ\sniper
+
+
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
+スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
+スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
+スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装			A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装			A:\PJ\sniper\src\cpp\cpp.txt
+スナイパードメインのCによる実装			A:\PJ\sniper\src\c\c.txt

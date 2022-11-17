@@ -21,7 +21,12 @@ Windows環境での開発はその辺を考慮しないと・・
 実装中に気付いた事　　			A:\PJ\sniper\hint.txt
 今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
 現在の作業フォルダ　			A:\PJ\sniper
+
+
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
 スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
 スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装		A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装		A:\PJ\sniper\src\cpp\cpp.txt

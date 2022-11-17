@@ -1,0 +1,35 @@
+スナイパードメインのC++による実装		A:\PJ\sniper\src\cpp\cpp.txt
+
+このあたりはちゃんと書けているのか、ほとんど自信がない。includeはソースファイルだし。C＋＋らしい書き方はできていないと思う。
+ただ何とか出来上がると、EXEファイルなのでスピードは速い。こちらも、テストライブラリは無いので、自前のテスト関数で何とかする。
+
+CPPの直和型はUnionみたいだけど、うまく作れる気がしないので二つともオブジェクトで作ってみる。
+
+gccもUnix寄りのコンパイラだけに、改行が絡む処理の等価性はWindows環境では見た目が同じでもダメだ。
+なのでいったん\nで切りわけた、文字列の1番目と2番目をトリムして空白で合成するretToSpを導入する。
+でも、テストメソッドの説明に絡む日本語化はコンパイルオプションで可能だ。
+g++ -Wall -Wextra -fexec-charset=cp932 src/cpp/src/sniper.cpp
+だだし、あくまでもコメントアウトだけで、例えば関数名に日本語は使えない。
+
+パッケージプログラミングの戦略もOCamlと同じで次のCでも同じになるのだろう。なのでutilsフォルダも少し整理した。
+理解が足りないと感じるのは、C＋＋参照渡しでCには無い機能らしい。Cで行うポインタ渡しより安全だというけど・・
+
+また、モックライブラリも手元には無いので、SniperオブジェクトをTranslatorの生成時に渡す戦略は止めて、
+関数型言語で行ったように、domain関数でお互いを生成してマッチメイクした。
+
+
+
+スナイパーファイナル　　			A:\PJ\sniper\Sniper.txt
+実装中に気付いた事　　			A:\PJ\sniper\hint.txt
+今回の最終形				 	A:\PJ\mamo2\langs\groovy\prjs\books\ant
+現在の作業フォルダ　			A:\PJ\sniper
+
+
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
+スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
+スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
+スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装			A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装			A:\PJ\sniper\src\cpp\cpp.txt
+スナイパードメインのCによる実装			A:\PJ\sniper\src\c\c.txt

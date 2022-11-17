@@ -1,2 +1,2 @@
-failed: [fail_dmt]  a broken message
+failed: msg is [a broken message] because < delmit error.>
 item-123 0 0 FAILED

@@ -11,8 +11,11 @@ VSCodeは、色々な言語に対応するためにJavaに特化したbulid.xml�
 スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
 スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
 スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
-スナイパードメインのRubyによる実装			A:\PJ\sniper\src\ruby\ruby.txt
-スナイパードメインのHaskellによる実装		A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのRubyによる実装				A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装			A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装				A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装				A:\PJ\sniper\src\cpp\cpp.txt
+スナイパードメインのCによる実装					A:\PJ\sniper\src\c\c.txt
 
 
 本書の提案通り、まずはテスト環境の足場作りだ。FakeAuctionはtest.auctionパッケージの置く、けどサーバーの実装は

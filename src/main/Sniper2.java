@@ -26,7 +26,10 @@ public class Sniper2 implements MessageListener, ForGUI {
     catch(IOException e) { e.printStackTrace();}
   }
   private void exesPart(){
-    String exes = "src/haskell/src/SniperZ";
+    String exes = "a-c.exe";
+    // String exes = "a-cpp.exe";
+    // String exes = "ocaml src/ocaml/src/sniper.ml";
+    // String exes = "src/haskell/src/SniperZ";
     // String exes = "runghc src/haskell/src/Sniper.hs";
     // String exes = "node src/js/src/sniper.js";
     // String exes = "ruby src/ruby/src/sniper.rb";
