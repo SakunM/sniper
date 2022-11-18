@@ -13,12 +13,3 @@
 OCaml C++ C に関しては、自分の知見ではヘッダーファイルとリンクによる方法ではなく、ソースレベルでの展開になっています。
 
 
-
-スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
-スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
-スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
-スナイパードメインのRubyによる実装				A:\PJ\sniper\src\ruby\ruby.txt
-スナイパードメインのHaskellによる実装			A:\PJ\sniper\src\haskell\heskell.txt
-スナイパードメインのOCamlによる実装				A:\PJ\sniper\src\ocaml\ocaml.txt
-スナイパードメインのC++による実装				A:\PJ\sniper\src\cpp\cpp.txt
-スナイパードメインのCによる実装					A:\PJ\sniper\src\c\c.txt

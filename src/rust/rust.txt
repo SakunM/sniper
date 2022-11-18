@@ -1,0 +1,33 @@
+スナイパードメインのRustによる実装				A:\PJ\sniper\src\rust\rust.txt
+
+最後はRustだ他の言語とすべてに置いて勝手が違うので出来るかどうか？
+Lib.rsの使い方に少しなれて、ドメインはLib.rsに置く事にした。テストに使うグローバル定数はRustの場合生成がめんどくさい。
+const JOINING: &str = "sniper item-123 1300 0 0 JOINING";　大文字でないと、警告が出るし、型注釈は必須だ。
+
+Lib.rsは、ファイル内にテストが使えるRustのテストスタイルはプロダクトコードとテストコードの共存だ、
+マーチンフラワーが最初に考えた方法の進化版で、自分もこのスタイルが好きだ。
+
+まず、Sniperは構造体（直積型）で入札の現在の状態をキャシュ。
+Transは列挙体（直和型）で、translato関数でメッセージのマッピングや取り出しで発生する状態に応じてTransのメンバーを返す。
+Job関数はSniperとTransを取り込み、Transの状態をSniperの各実装メソッドに渡してSniperの状態を変化させる。
+
+Sniperは変化した情報を元に文字列化するために、Displayトレイトを実装する。
+
+Lib.rsである程度、実装できたら、自前のテスト関数も試してみたい。
+
+Main.rsは、マッチメイクとファイルの読み込みや書き込むを責務とする。
+
+
+
+
+今回の最終形				 					A:\PJ\mamo2\langs\groovy\prjs\books\ant
+現在の作業フォルダ　							A:\PJ\sniper
+スナイパーファイナルリードミー					A:\PJ\sniper\readme.txt
+スナイパードメインのJavaScriptによる実装		A:\PJ\sniper\src\js\js.txt
+スナイパードメインのPythonによる実装			A:\PJ\sniper\src\python\python.txt
+スナイパードメインのRubyによる実装				A:\PJ\sniper\src\ruby\ruby.txt
+スナイパードメインのHaskellによる実装			A:\PJ\sniper\src\haskell\heskell.txt
+スナイパードメインのOCamlによる実装				A:\PJ\sniper\src\ocaml\ocaml.txt
+スナイパードメインのC++による実装				A:\PJ\sniper\src\cpp\cpp.txt
+スナイパードメインのCによる実装					A:\PJ\sniper\src\c\c.txt
+スナイパードメインのRustによる実装				A:\PJ\sniper\src\rust\rust.txt

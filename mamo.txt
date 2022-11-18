@@ -1,1 +1,1 @@
-Hi!! from C langage!!
+hello this is a main.rs!!

@@ -18,6 +18,11 @@
 他の言語で当たり前のように使っていた構造体だけど、今回のアプリの仕様で本当に必要なのか疑問に思った。
 仕様を突き詰めるとメッセージは一回だけ届いて、そのメッセージを一回だけ処理して返すだけなので、構造をキャッシュする必要は無い。
 
+結局SniperとTranslatorは構造体にはしなかった。なので、各関数へは引数が多い。
+
+でも、マイバック戦略でスタックのみを使うので、不可解なメモリエラーを排除できたので、少し自信が持てる。
+
+
 
 今回の最終形				 					A:\PJ\mamo2\langs\groovy\prjs\books\ant
 現在の作業フォルダ　							A:\PJ\sniper
@@ -29,4 +34,4 @@
 スナイパードメインのOCamlによる実装				A:\PJ\sniper\src\ocaml\ocaml.txt
 スナイパードメインのC++による実装				A:\PJ\sniper\src\cpp\cpp.txt
 スナイパードメインのCによる実装					A:\PJ\sniper\src\c\c.txt
-
+スナイパードメインのRustによる実装				A:\PJ\sniper\src\rust\rust.txt

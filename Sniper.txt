@@ -16,7 +16,7 @@ VSCodeは、色々な言語に対応するためにJavaに特化したbulid.xml�
 スナイパードメインのOCamlによる実装				A:\PJ\sniper\src\ocaml\ocaml.txt
 スナイパードメインのC++による実装				A:\PJ\sniper\src\cpp\cpp.txt
 スナイパードメインのCによる実装					A:\PJ\sniper\src\c\c.txt
-
+スナイパードメインのRustによる実装				A:\PJ\sniper\src\rust\rust.txt
 
 本書の提案通り、まずはテスト環境の足場作りだ。FakeAuctionはtest.auctionパッケージの置く、けどサーバーの実装は
 main.auctionにAuctionServerとして置き。FakeAuctionからの遠隔操作とした。また、本書ではテスト基盤として
